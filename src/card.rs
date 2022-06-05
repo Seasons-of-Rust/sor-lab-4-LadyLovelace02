@@ -13,10 +13,10 @@ impl Card {
     pub fn fight(&self, other: &Card) -> FightResult {
         let bool_did_kill = (self.health <= other.damage, other.health <= self.damage);
         match bool_did_kill {
-            (true, true) => return FightResult::Tie,
-            (false, false) => return FightResult::Draw,
-            (true, false) => return FightResult::Loss,
-            (false, true) => return FightResult::Win,
+            (true, true) => FightResult::Tie,
+            (false, false) => FightResult::Draw,
+            (true, false) => FightResult::Loss,
+            (false, true) => FightResult::Win,
         }
         // if &self.health - other.damage > 0 && other.health - &self.damage > 0 {
         //     FightResult::Draw
