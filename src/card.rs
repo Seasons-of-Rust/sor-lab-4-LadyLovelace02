@@ -11,7 +11,25 @@ pub struct Card {
 
 impl Card {
     pub fn fight(&self, other: &Card) -> FightResult {
-        todo!()
+        let bool_did_kill = (self.health <= other.damage, other.health <= self.damage);
+        match bool_did_kill {
+            (true, true) => FightResult::Tie,
+            (false, false) => FightResult::Draw,
+            (true, false) => FightResult::Loss,
+            (false, true) => FightResult::Win,
+        }
+        // if &self.health - other.damage > 0 && other.health - &self.damage > 0 {
+        //     FightResult::Draw
+        // }
+        // else if &self.health - other.damage <= 0 && other.health - &self.damage <= 0 {
+        //     FightResult::Tie
+        // }
+        // else if &self.health - other.damage <= 0 {
+        //     FightResult::Loss
+        // }
+        // else {//since they both didn't die and both didn't live and this card didn't die
+        //     FightResult::Win
+        // }
     }
 
     /// Give a play by play of the battle
