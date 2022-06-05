@@ -1,5 +1,5 @@
-use std::fmt; 
 use std::cmp::Ordering;
+use std::fmt;
 
 use crate::{card::Card, FightResult};
 
@@ -41,7 +41,7 @@ impl Shop {
         match shop1_wins.cmp(&0) {
             Ordering::Greater => FightResult::Win,
             Ordering::Less => FightResult::Loss,
-            Ordering::Equal => FightResult::Tie
+            Ordering::Equal => FightResult::Tie,
         }
     }
 }
